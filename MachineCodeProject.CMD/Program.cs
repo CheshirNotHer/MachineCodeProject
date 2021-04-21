@@ -10,7 +10,6 @@ namespace MachineCodeProject.CMD
         static void Main(string[] args)
         {
            
-            TranslateInCode translateCode = new TranslateInCode();
             try
             {
                 for (;;)
@@ -18,9 +17,9 @@ namespace MachineCodeProject.CMD
 
 
                     Console.Write("Enter numeric1: ");
-                    MachineCodeClass mc1 = translateCode.TranslateNumericInMachineCode(int.Parse(Console.ReadLine()));
+                    MachineCodeClass mc1 = TranslateInCode.TranslateNumericInMachineCode(int.Parse(Console.ReadLine()));
                     Console.Write("Enter numeric2: ");
-                    MachineCodeClass mc2 = translateCode.TranslateNumericInMachineCode(int.Parse(Console.ReadLine()));
+                    MachineCodeClass mc2 = TranslateInCode.TranslateNumericInMachineCode(int.Parse(Console.ReadLine()));
                     MachineCodeClass mcRes = mc1 + mc2;
                     Console.WriteLine($"{mcRes.ToString()}");
                 }

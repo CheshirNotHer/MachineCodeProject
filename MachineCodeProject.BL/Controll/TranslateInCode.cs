@@ -7,16 +7,13 @@ namespace MachineCodeProject.BL.Controll
 {
     public class TranslateInCode
     {
-        //TODO: Эта версия не предусматривает увеличения числа на определеннное количество битов, что необходимо при математичиских операциях.
         
-        //TODO: ПЕРЕДЕЛАТЬ методы на static!
-
         /// <summary>
         /// Перевод числа в прямой, обратный и дополнительный код.
         /// </summary>
         /// <param name="num">Число, в десятеричной СС, для перевода в прямой, обратный и дополнительный код.</param>
         /// <returns></returns>
-        public MachineCodeClass TranslateNumericInMachineCode(int num)
+        public static MachineCodeClass TranslateNumericInMachineCode(int num)
         {
             MachineCodeClass mc = new MachineCodeClass(num);
             TranslateInStraightCode(mc);
@@ -24,11 +21,12 @@ namespace MachineCodeProject.BL.Controll
             TranslateInAdditionalCode(mc);
             return mc;
         }
+
         /// <summary>
         /// Перевод числа в прямой код.
         /// </summary>
         /// <param name="mc">Класс с числом которое необходимо перевести и для хранения результата.</param>
-        private void TranslateInStraightCode(MachineCodeClass mc)
+        private static void TranslateInStraightCode(MachineCodeClass mc)
         {
             if (mc == null)
                 throw new ArgumentNullException("Класс не может быть равенн null.",nameof(mc));
@@ -40,7 +38,7 @@ namespace MachineCodeProject.BL.Controll
         /// Перевод в обратный код.
         /// </summary>
         /// <param name="mc">Класс с числом которое необходимо перевести и заполненным прямым кодом, и для хранения результата.</param>
-        private void TransateInReversCode(MachineCodeClass mc)
+        private static void TransateInReversCode(MachineCodeClass mc)
         {
             #region Проверки на ошибки
             if (mc == null)
@@ -70,7 +68,7 @@ namespace MachineCodeProject.BL.Controll
         /// Перевод в дополнительный код.
         /// </summary>
         /// <param name="mc">Класс с числом которое необходимо перевести и заполненным обратным кодом, и для хранения результата.</param>
-        private void TranslateInAdditionalCode(MachineCodeClass mc)
+        private static void TranslateInAdditionalCode(MachineCodeClass mc)
         {
             #region Проверки на ошибки
             if (mc == null)
@@ -88,8 +86,7 @@ namespace MachineCodeProject.BL.Controll
                 return;
             }
 
-            ///TODO: Могут быть ошибки при увеличении числа. ПРОВЕРИТЬ!
-            string reverse_value = mc.ReversCode.Remove(0, 2);///Проверка
+            string reverse_value = mc.ReversCode.Remove(0, 2);
             int value = Convert.ToInt32(reverse_value, 2);
             value++;
             string additCode = Convert.ToString(value, 2);
