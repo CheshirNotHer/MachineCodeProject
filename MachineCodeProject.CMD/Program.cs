@@ -1,4 +1,7 @@
-﻿using System;
+﻿using MachineCodeProject.BL.Model;
+using MachineCodeProject.BL.Controll;
+
+using System;
 
 namespace MachineCodeProject.CMD
 {
@@ -6,9 +9,28 @@ namespace MachineCodeProject.CMD
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
-            int numeric = 3;
-            Console.WriteLine(Convert.ToString(numeric,2));
+           
+            TranslateInCode translateCode = new TranslateInCode();
+            try
+            {
+                for (;;)
+                {
+
+
+                    Console.Write("Enter numeric1: ");
+                    MachineCodeClass mc1 = translateCode.TranslateNumericInMachineCode(int.Parse(Console.ReadLine()));
+                    Console.Write("Enter numeric2: ");
+                    MachineCodeClass mc2 = translateCode.TranslateNumericInMachineCode(int.Parse(Console.ReadLine()));
+                    MachineCodeClass mcRes = mc1 + mc2;
+                    Console.WriteLine($"{mcRes.ToString()}");
+                }
+            }
+            catch (Exception ex)
+            {
+
+                Console.WriteLine($"{ex.Message}");
+            }
+          
         }
     }
 }
