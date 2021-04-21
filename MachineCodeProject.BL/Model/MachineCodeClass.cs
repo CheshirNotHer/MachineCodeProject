@@ -27,17 +27,17 @@ namespace MachineCodeProject.BL.Model
         public int sign;
 
         /// <summary>
-        /// Прямой код.
+        /// Прямой код. Format: 0:00100
         /// </summary>
         public string StraightCode { get; set; }
 
         /// <summary>
-        /// Обратный код
+        /// Обратный код. Format: 0:11011
         /// </summary>
         public string ReversCode { get; set; }
 
         /// <summary>
-        /// Дополнительный код.
+        /// Дополнительный код. Format: 0:11100
         /// </summary>
         public string AdditionalCode { get; set; }
 
@@ -55,9 +55,9 @@ namespace MachineCodeProject.BL.Model
         /// Создать новое число и прямой, обратный, дополнительный код.
         /// </summary>
         /// <param name="num">Число, в десятеричной СС, для перевода.</param>
-        /// <param name="straigh">Прямой код.</param>
-        /// <param name="revers">Обратный код.</param>
-        /// <param name="additional">Дополнительный код.</param>
+        /// <param name="straigh">Прямой код. Format: 0:00100</param>
+        /// <param name="revers">Обратный код. Format: 0:11011</param>
+        /// <param name="additional">Дополнительный код. Format: 0:11100</param>
         public MachineCodeClass(int num,
                                 string straigh,
                                 string revers,
