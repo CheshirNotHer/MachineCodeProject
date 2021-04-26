@@ -38,6 +38,9 @@ namespace MachineCodeProject.ViewWinForm
             this.labelToRandomTB = new System.Windows.Forms.Label();
             this.textBoxRandomCount = new System.Windows.Forms.TextBox();
             this.buttonTranslateRandom = new System.Windows.Forms.Button();
+            this.buttonClearTBResult = new System.Windows.Forms.Button();
+            this.buttonSaveToTXT = new System.Windows.Forms.Button();
+            this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.SuspendLayout();
             // 
             // buttonTranslate
@@ -78,11 +81,12 @@ namespace MachineCodeProject.ViewWinForm
             // labelToTranslateTB
             // 
             this.labelToTranslateTB.AutoSize = true;
-            this.labelToTranslateTB.Location = new System.Drawing.Point(12, 44);
+            this.labelToTranslateTB.Location = new System.Drawing.Point(12, 18);
+            this.labelToTranslateTB.MaximumSize = new System.Drawing.Size(300, 0);
             this.labelToTranslateTB.Name = "labelToTranslateTB";
-            this.labelToTranslateTB.Size = new System.Drawing.Size(246, 23);
+            this.labelToTranslateTB.Size = new System.Drawing.Size(282, 46);
             this.labelToTranslateTB.TabIndex = 4;
-            this.labelToTranslateTB.Text = "Введите число для перевода:";
+            this.labelToTranslateTB.Text = "Введите число для перевода или несколько через пробелы: ";
             // 
             // labelToResultTB
             // 
@@ -119,11 +123,34 @@ namespace MachineCodeProject.ViewWinForm
             this.buttonTranslateRandom.UseVisualStyleBackColor = true;
             this.buttonTranslateRandom.Click += new System.EventHandler(this.buttonTranslateRandom_Click);
             // 
+            // buttonClearTBResult
+            // 
+            this.buttonClearTBResult.Location = new System.Drawing.Point(562, 11);
+            this.buttonClearTBResult.Name = "buttonClearTBResult";
+            this.buttonClearTBResult.Size = new System.Drawing.Size(190, 29);
+            this.buttonClearTBResult.TabIndex = 9;
+            this.buttonClearTBResult.Text = "Очистить";
+            this.buttonClearTBResult.UseVisualStyleBackColor = true;
+            this.buttonClearTBResult.Click += new System.EventHandler(this.buttonClearTBResult_Click);
+            // 
+            // buttonSaveToTXT
+            // 
+            this.buttonSaveToTXT.Location = new System.Drawing.Point(58, 447);
+            this.buttonSaveToTXT.Name = "buttonSaveToTXT";
+            this.buttonSaveToTXT.Size = new System.Drawing.Size(166, 47);
+            this.buttonSaveToTXT.TabIndex = 10;
+            this.buttonSaveToTXT.TabStop = false;
+            this.buttonSaveToTXT.Text = "Save";
+            this.buttonSaveToTXT.UseVisualStyleBackColor = true;
+            this.buttonSaveToTXT.Click += new System.EventHandler(this.buttonSaveToTXT_Click);
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 23F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(779, 593);
+            this.Controls.Add(this.buttonSaveToTXT);
+            this.Controls.Add(this.buttonClearTBResult);
             this.Controls.Add(this.buttonTranslateRandom);
             this.Controls.Add(this.textBoxRandomCount);
             this.Controls.Add(this.labelToRandomTB);
@@ -152,6 +179,9 @@ namespace MachineCodeProject.ViewWinForm
         private System.Windows.Forms.Label labelToRandomTB;
         private System.Windows.Forms.TextBox textBoxRandomCount;
         private System.Windows.Forms.Button buttonTranslateRandom;
+        private System.Windows.Forms.Button buttonClearTBResult;
+        private System.Windows.Forms.Button buttonSaveToTXT;
+        private System.Windows.Forms.SaveFileDialog saveFileDialog1;
     }
 }
 

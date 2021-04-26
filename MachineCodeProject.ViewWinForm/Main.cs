@@ -12,16 +12,32 @@ namespace MachineCodeProject.ViewWinForm
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Перевод числа или нескольких чисел в машинный код.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void buttonTranslate_Click(object sender, EventArgs e)
         {
             try
             {
                 if (string.IsNullOrWhiteSpace(textBoxNumeric.Text))
                     throw new ArgumentException("Переводимое число не может быть пустым или равно null.", nameof(textBoxNumeric));
-    
-                MachineCodeClass mc = TranslateInCode.TranslateNumericInMachineCode(Int32.Parse(textBoxNumeric.Text));
 
-                richTextBoxResult.Text = mc.ToString();
+                string[] strArr = textBoxNumeric.Text.Split(' ');
+                MachineCodeClass mc;
+
+                for (int i = 0; i < strArr.Length; i++)
+                {
+                    if (strArr[i] != null)
+                    {
+                        mc = TranslateInCode.TranslateNumericInMachineCode(Int32.Parse(strArr[i]));
+
+                        richTextBoxResult.Text += mc.ToString()+"\n\n";
+                    }
+                }
+
+                
 
             }
             catch (Exception ex)
@@ -31,11 +47,21 @@ namespace MachineCodeProject.ViewWinForm
            
         }
 
+        /// <summary>
+        /// Копирование результата перевода числа в буфер.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void buttonCopyResult_Click(object sender, EventArgs e)
         {
             Clipboard.SetText(richTextBoxResult.Text);
         }
 
+        /// <summary>
+        /// Рандомит числа, количество введено в TextBox, для перевода и переводит их в машинный код. 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void buttonTranslateRandom_Click(object sender, EventArgs e)
         {
             try
@@ -63,6 +89,36 @@ namespace MachineCodeProject.ViewWinForm
                 MessageBox.Show(ex.Message);
             }
           
+        }
+
+        /// <summary>
+        /// Удаления из richTextBox всех записей. 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void buttonClearTBResult_Click(object sender, EventArgs e)
+        {
+            richTextBoxResult.Clear();
+        }
+
+        /// <summary>
+        /// Производит сохранения файла с результатом перевод.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void buttonSaveToTXT_Click(object sender, EventArgs e)
+        {
+            if (saveFileDialog1.ShowDialog() == DialogResult.Cancel)
+                return;
+
+            // получаем выбранный файл
+            string filename = saveFileDialog1.FileName;
+
+            // сохраняем текст в файл
+            System.IO.File.WriteAllText(filename, richTextBoxResult.Text);
+            MessageBox.Show("Файл сохранен");
+
+            //SaveMC.SaveToTxt(richTextBoxResult.Text);
         }
     }
 }
