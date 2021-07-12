@@ -7,7 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MachineCodeProject.BL", "Ma
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MachineCodeProject.CMD", "MachineCodeProject.CMD\MachineCodeProject.CMD.csproj", "{9620B2B5-B3BD-4334-80FF-2D48FB9D156E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MachineCodeProject.ViewWinForm", "MachineCodeProject.ViewWinForm\MachineCodeProject.ViewWinForm.csproj", "{3DD741A8-59A9-4CFF-9609-CB1E117B82DB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MachineCodeProject.ViewWinForm", "MachineCodeProject.ViewWinForm\MachineCodeProject.ViewWinForm.csproj", "{3DD741A8-59A9-4CFF-9609-CB1E117B82DB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
